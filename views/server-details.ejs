@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Server Details</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <h1><%= server.name %></h1>
+  <p>IP: <%= server.ip_address %></p>
+
+  <p>Metrics are collected automatically from server agent every 5 seconds</p>
+
+  <h2>CPU Usage</h2>
+  <canvas id="cpuChart"></canvas>
+
+  <h2>Memory Usage</h2>
+  <canvas id="memoryChart"></canvas>
+
+  <script>
+    const metrics = <%- JSON.stringify(metrics) %>;
+
+    const labels = metrics.map(m => new Date(m.created_at).toLocaleTimeString());
+    const cpuData = metrics.map(m => m.cpu_usage);
+    const memoryData = metrics.map(m => m.memory_usage);
+
+    new Chart(document.getElementById('cpuChart'), {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'CPU %',
+          data: cpuData,
+          borderColor: 'red',
+          fill: false
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('memoryChart'), {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Memory %',
+          data: memoryData,
+          borderColor: 'blue',
+          fill: false
+        }]
+      }
+    });
+  </script>
+
+  <h2>Recent Metrics</h2>
+
+  <table border="1">
+    <tr>
+      <th>CPU (%)</th>
+      <th>Memory (%)</th>
+      <th>Time</th>
+    </tr>
+
+    <% metrics.forEach(m => { %>
+      <tr>
+        <td><%= m.cpu_usage %></td>
+        <td><%= m.memory_usage %></td>
+        <td><%= m.created_at %></td>
+      </tr>
+    <% }) %>
+  </table>
+
+  <a href="/">Back</a>
+
+</body>
+</html>

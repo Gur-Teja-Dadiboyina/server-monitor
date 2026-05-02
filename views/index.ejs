@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Server Dashboard</h1>
+
+  <a href="/add-server">Add Server</a>
+
+  <ul>
+    <% servers.forEach(server => { %>
+      <li>
+        <a href="/server/<%= server.id %>">
+          <%= server.name %> - <%= server.ip_address %>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
