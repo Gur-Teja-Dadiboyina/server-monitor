@@ -125,9 +125,9 @@ npm install
 Create .env file:
 
 DB_HOST=<mysql-ec2-private-ip>
-DB_USER=devuser
-DB_PASSWORD=dev123
-DB_NAME=server_monitor
+DB_USER=YOUR_USERNAME
+DB_PASSWORD=YOUR_PASSWORD
+DB_NAME=YOUR DB_NAME
 PORT=3000
 
 4. Start Application (Production Mode)
