@@ -163,3 +163,40 @@ Pipeline stages:
 
 📸 Screenshots
 "C:\Users\gurud\OneDrive\Pictures\Screenshots 1\Screenshot 2026-05-02 144536.png"
+
+🛠️ Tech Stack
+Node.js
+Express.js
+MySQL
+EJS
+Chart.js
+AWS EC2
+Docker
+Jenkins
+PM2
+
+🔥 Key Highlights
+Real-time system monitoring
+Agent-based architecture
+Cloud deployment (AWS EC2)
+CI/CD pipeline (Jenkins)
+Containerized deployment (Docker)
+
+🚀 Future Improvements
+Multi-server auto discovery
+Grafana integration
+Alert system (CPU > threshold)
+Kubernetes deployment
+Centralized logging system
+
+👨‍💻 Author
+
+Built as a DevOps learning project to simulate real-world infrastructure monitoring systems used in production environments.
+
+⭐ Goal of This Project
+
+To replicate a simplified version of enterprise monitoring tools like:
+
+Prometheus
+Grafana
+CloudWatch
